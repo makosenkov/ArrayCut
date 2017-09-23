@@ -1,13 +1,5 @@
-import java.util.*
 
-
-fun main(args: Array<String>) {
-    val price = listOf(1000, -5, -12, 100, -10, 20)
-    val maxOfPrice = price.subList(find(price).second, find(price).third + 1)
-    println(find(price).first.toString() + " " + maxOfPrice)
-}
-
-fun find(price: List<Int>): Triple<Int, Int, Int> {
+fun find(price: List<Int>): List<Int> {
     var sum = price[0]
     var bufSum = 0
     var leftIndex = 0
@@ -25,5 +17,5 @@ fun find(price: List<Int>): Triple<Int, Int, Int> {
             bufLeft = i
         }
     }
-    return Triple(sum, leftIndex, rightIndex)
+    return price.subList(leftIndex, rightIndex + 1)
 }
